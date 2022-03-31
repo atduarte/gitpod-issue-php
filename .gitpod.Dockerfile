@@ -2,7 +2,9 @@ FROM gitpod/workspace-full
 
 USER gitpod
 
-RUN sudo add-apt-repository ppa:ondrej/php && \
+RUN sudo apt-get purge apache2 nginx php && \
+    sudo add-apt-repository ppa:ondrej/php && \
     sudo apt-get update -q && \
     sudo apt-get install -yq php7.3 && \
-    sudo update-alternatives --set php /usr/bin/php7.3
+    sudo update-alternatives --set php /usr/bin/php7.3 && \
+    sudp install-packages apache2 nginx
